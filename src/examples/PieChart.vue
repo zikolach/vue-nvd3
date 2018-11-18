@@ -57,8 +57,6 @@
 
 <script>
   import Faker from 'Faker'
-  import _ from 'lodash'
-  import d3 from 'd3'
 
   export default {
     data () {

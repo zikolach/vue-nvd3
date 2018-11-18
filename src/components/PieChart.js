@@ -1,4 +1,3 @@
-import d3 from 'd3'
 import nv from 'nvd3'
 import BaseChartMixin from './BaseChartMixin'
 

@@ -16,9 +16,9 @@
       <ul id="tab-content" class="uk-switcher uk-margin">
         <li class="uk-active">
           <pre><code>&lt;vn-bubble :model="series"
-  x-format=".02f"
-  y-format=".02f"&gt;
-      &lt;/vn-bubble&gt;</code></pre>
+           x-format=".02f"
+           y-format=".02f"&gt;
+&lt;/vn-bubble&gt;</code></pre>
         </li>
         <li>
           <pre><code>{{series}}</code></pre>
@@ -30,7 +30,6 @@
 </template>
 
 <script>
-  import Faker from 'Faker'
   import _ from 'lodash'
   import d3 from 'd3'
 
@@ -42,8 +41,8 @@
     },
     methods: {
       randomData(groups, points) { //# groups,# points per group
-        const shapes = ['circle', 'cross', 'triangle-up', 'triangle-down', 'diamond', 'square']
-        const random = d3.random.normal()
+        const shapes = ['circle', 'cross', 'triangle-up', 'triangle-down', 'diamond', 'square'];
+        const random = d3.random.normal();
 
         return _.map(_.range(groups), i => {
           return {

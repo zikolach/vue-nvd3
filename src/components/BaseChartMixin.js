@@ -1,3 +1,5 @@
+import d3 from 'd3';
+
 export default {
   props: {
     model: {type: Array},
@@ -9,7 +11,7 @@ export default {
     }
   },
   watch: {
-    model (value) {
+    model () {
       if (this.chartRef) {
         this.redraw(this.chartRef)
       }
@@ -25,8 +27,9 @@ export default {
         .call(chart)
     }
   },
-  render (h) {
-    return <svg ref="chart">
-    </svg>
+  render(h) {
+    return h('svg', {ref: 'chart'});
+    // return <svg ref="chart">
+    // </svg>
   }
 }

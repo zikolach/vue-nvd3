@@ -12,17 +12,16 @@ export default {
     showDistY: {type: Boolean, default: true},
     colors: {type: Array, default: () => ['#82DFD6', '#ddd']}
   },
-  mounted () {
+  mounted() {
     nv.addGraph(() => {
       const chart = nv.models.scatterChart()
-        .showDistX(true)    //showDist, when true, will display those little distribution lines on the axis.
-        .showDistY(true)
+        .showDistX(this.showDistX)    //showDist, when true, will display those little distribution lines on the axis.
+        .showDistY(this.showDistY)
         .height(this.height)
-        //.transitionDuration(350)
-        .color(d3.scale.category10().range())
+        .color(d3.scale.category10().range());
 
       //Configure how the tooltip looks.
-      //chart.tooltipContent(key => '<h3>' + key + '</h3>')
+      // chart.tooltipContent(key => '<h3>' + key + '</h3>');
 
       //Axis settings
       if (this.xFormat) {
@@ -42,10 +41,10 @@ export default {
       }
 
       //We want to show shapes other than circles.
-      //chart.scatter.onlyCircles(false)
+      // chart.scatter.onlyCircles(false)
 
-      this.redraw(chart)
-      this.chartRef = chart
+      this.redraw(chart);
+      this.chartRef = chart;
 
       nv.utils.windowResize(chart.update);
       return chart

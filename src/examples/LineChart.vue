@@ -16,8 +16,8 @@
       <ul id="tab-content" class="uk-switcher uk-margin">
         <li class="uk-active">
           <pre><code>&lt;vn-line :model="traffics"
-  :x-format="formatDate"
-  y-format=",f"&gt;
+         :x-format="formatDate"
+         y-format=",f"&gt;
 &lt;/vn-line&gt;</code></pre>
         </li>
         <li>
@@ -34,7 +34,7 @@
   import d3 from 'd3'
 
   export default {
-    data () {
+    data() {
       const gen_item = (month, day) => {
         return {
           date: new Date(`2016-${month}-${day}`).getTime(),
@@ -43,17 +43,17 @@
           losses: Faker.random.number(3000),
           stay: Faker.random.number(50)
         }
-      }
+      };
 
-      const days = _.range(31)
-      const month = Faker.random.number(12)
+      const days = _.range(31);
+      const month = Faker.random.number(12);
 
       return {
         trafficData: _.map(days, d => gen_item(month, d + 1))
       }
     },
     computed: {
-      traffics () {
+      traffics() {
         return [
           {
             key: 'visits',
@@ -89,7 +89,7 @@
       }
     },
     methods: {
-      formatDate (d){
+      formatDate(d) {
         return d3.time.format('%x')(new Date(d))
       }
     }

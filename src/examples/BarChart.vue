@@ -16,8 +16,8 @@
       <ul id="tab-content" class="uk-switcher uk-margin">
         <li class="uk-active">
           <pre><code>&lt;vn-bar :model="traffics"
-       :x-format="formatDate"
-       y-format=",f"&gt;
+        :x-format="formatDate"
+        y-format=",f"&gt;
 &lt;/vn-bar&gt;</code></pre>
         </li>
         <li>
@@ -33,22 +33,21 @@
   import d3 from 'd3'
 
   export default {
-    data () {
+    data() {
       const gen_item = () => {
         return {
           domain: Faker.Internet.domainName(),
           visits: Faker.random.number(10000)
         }
-      }
+      };
 
-      const ranges = _.range(Faker.random.number(20))
+      const ranges = _.range(Faker.random.number(20));
 
-      return {
-        trafficData: _.map(ranges, gen_item)
-      }
+      let trafficData = _.map(ranges, gen_item);
+      return {trafficData}
     },
     computed: {
-      traffics () {
+      traffics() {
         return [
           {
             key: 'visits',
@@ -64,7 +63,7 @@
       }
     },
     methods: {
-      formatDate (d){
+      formatDate(d) {
         return d3.time.format('%x')(new Date(d))
       }
     }
